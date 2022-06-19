@@ -14,7 +14,7 @@ export default function ParticipantItem({
   const [flag, setFlag] = useState('');
   const [clicked, setClicked] = useState(false);
 
-  const rankClass = () => {
+  const getRankClass = () => {
     switch (rank) {
       case 1:
         return 'rank-1';
@@ -46,7 +46,7 @@ export default function ParticipantItem({
       <div className='participant-info-container'>
         <div
           className={`participant-rank-container ${
-            locationChoice === '10km' ? rankClass() : ''
+            locationChoice === '10km' ? getRankClass() : ''
           }`}
         >
           <p>{rank ? rank : 'DNF'}</p>
@@ -66,9 +66,9 @@ export default function ParticipantItem({
       </div>
       {clicked && (
         <div>
-          {/* Yea, 'country' data string is in english: */}
+          {/* 'country' string from data is english and should be translated: */}
           <p className='participant-extra-info'>Land: {country}</p>
-          <p className='participant-extra-info'>Skjortenummer: {shirtNumber}</p>
+          <p className='participant-extra-info'>Draktnummer: {shirtNumber}</p>
           <p className='participant-extra-info'>
             Totale verdenscuppoeng: {totWCupPoints ? totWCupPoints : '0'}
           </p>
