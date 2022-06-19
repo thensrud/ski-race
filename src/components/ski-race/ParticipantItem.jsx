@@ -66,6 +66,7 @@ export default function ParticipantItem({
       </div>
       {clicked && (
         <div>
+          {/* Yea, 'country' data string is in english: */}
           <p className='participant-extra-info'>Land: {country}</p>
           <p className='participant-extra-info'>Skjortenummer: {shirtNumber}</p>
           <p className='participant-extra-info'>

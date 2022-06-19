@@ -2,10 +2,8 @@
 
 :root {
   --color-dark: rgb(26, 26, 28);
-  --color-dark-80: rgba(26, 26, 28, 0.8);
   --color-dark-20: rgba(26, 26, 28, 0.2);
   --color-light: #f3f4f5;
-  --color-primary-light: rgb(225, 235, 241);
 }
 
 body {
