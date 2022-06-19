@@ -7,7 +7,6 @@ export default function SkiRace() {
   const [onlyNorwegians, setOnlyNorwegians] = useState(false);
 
   let dateParts = skiData.racedata.date.split('-');
-  console.log(dateParts[2] + '.' + dateParts[1] + '.' + dateParts[0]);
 
   return (
     <section className='ski-race-main-container'>
@@ -17,6 +16,7 @@ export default function SkiRace() {
         </h1>
         <p className='race-date'>
           {`Sesong ${skiData.racedata.season} • ${
+            // To customize to more common Norwegian date format:
             dateParts[2] + '.' + dateParts[1] + '.' + dateParts[0]
           }`}
         </p>
@@ -84,7 +84,9 @@ export default function SkiRace() {
       {locationChoice === '10km' ? (
         <p className='list-explainer-text'>Endelige resultater:</p>
       ) : (
-        <p className='list-explainer-text'>Resultat etter {locationChoice}:</p>
+        <p className='list-explainer-text'>
+          Resultat etter {locationChoice.replace(/.{2}$/, ' $&')}:
+        </p>
       )}
       <div className='participant-list-container'>
         <ParticipantList

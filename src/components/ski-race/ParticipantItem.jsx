@@ -14,10 +14,6 @@ export default function ParticipantItem({
   const [flag, setFlag] = useState('');
   const [clicked, setClicked] = useState(false);
 
-  // const handleClicked = () => {
-  //   setClicked(true);
-  // };
-
   const rankClass = () => {
     switch (rank) {
       case 1:
@@ -31,6 +27,7 @@ export default function ParticipantItem({
     }
   };
 
+  // Using this instead of DLing all flag images. This is to fix different spelling on two countries:
   useEffect(() => {
     if (country === 'Russia') {
       setFlag('https://countryflagsapi.com/svg/russian%20federation');

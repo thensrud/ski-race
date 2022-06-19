@@ -31,7 +31,7 @@ code {
   height: 680px;
   margin: 50px auto 0;
   background-color: var(--color-light);
-  background: linear-gradient(rgb(245, 245, 245), rgb(229, 234, 236));
+  background: linear-gradient(rgb(246, 246, 246), rgb(216, 224, 227));
   display: flex;
   flex-direction: column;
 }
@@ -137,7 +137,7 @@ code {
 }
 
 input:checked + .slider {
-  background: linear-gradient(10deg, #c8102e, #e3e3e3, #003087);
+  background: linear-gradient(10deg, #c8102e, #e8e8e8, #003087);
 }
 
 input:focus + .slider {
@@ -186,6 +186,16 @@ input:checked + .slider:before {
 
 .participant-extra-info {
   margin: 0;
+  animation: fade 0.2s ease-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .participant-rank-container {
@@ -230,4 +240,41 @@ input:checked + .slider:before {
 
 .finish-time {
   font-weight: 600;
+}
+
+@media screen and (max-width: 400px) {
+  .participant-list-container {
+    margin: 5px;
+  }
+  .list-explainer-text {
+    margin: 5px 10px 0;
+  }
+  .participant-item,
+  .participant-time,
+  .participant-rank-container * {
+    font-size: 14px;
+  }
+  .participant-item {
+    height: 40px;
+  }
+  .item-open {
+    height: 120px;
+  }
+  .participant-rank-container {
+    height: 20px;
+    width: 30px;
+    margin-right: 5px;
+  }
+  .participant-name {
+    margin-left: 5px;
+    line-break: strict;
+  }
+  .participant-name,
+  .participant-time {
+    margin-top: 10px;
+  }
+  .participant-country-image {
+    height: 20px;
+    width: 34px;
+  }
 }
