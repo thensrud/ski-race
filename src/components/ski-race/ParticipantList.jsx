@@ -16,6 +16,9 @@ export default function ParticipantList({ locationChoice, onlyNorwegians }) {
             duration={participant.duration}
             timeDifference={participant.timeDifference}
             locationChoice={locationChoice}
+            shirtNumber={participant.person.shirtNumber}
+            totWCupPoints={participant.totalWorldCupPoints}
+            totNatCupPoints={participant.totalNationCupPoints}
           />
         )
       );
@@ -30,6 +33,9 @@ export default function ParticipantList({ locationChoice, onlyNorwegians }) {
           duration={participant.duration}
           timeDifference={participant.timeDifference}
           locationChoice={locationChoice}
+          shirtNumber={participant.person.shirtNumber}
+          totWCupPoints={participant.totalWorldCupPoints}
+          totNatCupPoints={participant.totalNationCupPoints}
         />
       );
     }

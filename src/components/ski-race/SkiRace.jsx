@@ -16,7 +16,9 @@ export default function SkiRace() {
           {skiData.racedata.competitionName} {skiData.racedata.name}
         </h1>
         <p className='race-date'>
-          {dateParts[2] + '.' + dateParts[1] + '.' + dateParts[0]}
+          {`Sesong ${skiData.racedata.season} • ${
+            dateParts[2] + '.' + dateParts[1] + '.' + dateParts[0]
+          }`}
         </p>
       </div>
       <div className='distance-button-container'>
@@ -79,12 +81,17 @@ export default function SkiRace() {
         </label>
         <p>{onlyNorwegians ? 'Viser norske' : 'Viser alle'}</p>
       </div>
-
-      <ParticipantList
-        locationChoice={locationChoice}
-        onlyNorwegians={onlyNorwegians}
-      />
-      <div className='fade' />
+      {locationChoice === '10km' ? (
+        <p className='list-explainer-text'>Endelige resultater:</p>
+      ) : (
+        <p className='list-explainer-text'>Resultat etter {locationChoice}:</p>
+      )}
+      <div className='participant-list-container'>
+        <ParticipantList
+          locationChoice={locationChoice}
+          onlyNorwegians={onlyNorwegians}
+        />
+      </div>
     </section>
   );
 }

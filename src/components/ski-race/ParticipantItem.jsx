@@ -7,8 +7,16 @@ export default function ParticipantItem({
   duration,
   timeDifference,
   locationChoice,
+  shirtNumber,
+  totWCupPoints,
+  totNatCupPoints,
 }) {
   const [flag, setFlag] = useState('');
+  const [clicked, setClicked] = useState(false);
+
+  // const handleClicked = () => {
+  //   setClicked(true);
+  // };
 
   const rankClass = () => {
     switch (rank) {
@@ -34,25 +42,42 @@ export default function ParticipantItem({
   }, [country]);
 
   return (
-    <div className='participant-item'>
-      <div
-        className={`participant-rank-container ${
-          locationChoice === '10km' ? rankClass() : ''
-        }`}
-      >
-        <p>{rank ? rank : 'DNF'}</p>
+    <div
+      className={`participant-item ${clicked ? 'item-open' : ''}`}
+      onClick={() => setClicked((prevCheck) => !prevCheck)}
+    >
+      <div className='participant-info-container'>
+        <div
+          className={`participant-rank-container ${
+            locationChoice === '10km' ? rankClass() : ''
+          }`}
+        >
+          <p>{rank ? rank : 'DNF'}</p>
+        </div>
+        <img
+          className='participant-country-image'
+          src={flag}
+          alt={`Flag ${country}`}
+          loading='lazy'
+        />
+        <p className='participant-name'>{name}</p>
+        {timeDifference ? (
+          <p className='participant-time'>{timeDifference}</p>
+        ) : (
+          <p className='participant-time finish-time'>{duration}</p>
+        )}
       </div>
-      <img
-        className='participant-country-image'
-        src={flag}
-        alt={`Flag ${country}`}
-        loading='lazy'
-      />
-      <p className='participant-name'>{name}</p>
-      {timeDifference ? (
-        <p className='participant-time'>{timeDifference}</p>
-      ) : (
-        <p className='participant-time finish-time'>{duration}</p>
+      {clicked && (
+        <div>
+          <p className='participant-extra-info'>Land: {country}</p>
+          <p className='participant-extra-info'>Skjortenummer: {shirtNumber}</p>
+          <p className='participant-extra-info'>
+            Totale verdenscuppoeng: {totWCupPoints ? totWCupPoints : '0'}
+          </p>
+          <p className='participant-extra-info'>
+            Totale nasjonscuppoeng: {totNatCupPoints ? totNatCupPoints : '0'}
+          </p>
+        </div>
       )}
     </div>
   );
