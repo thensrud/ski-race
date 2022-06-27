@@ -1,36 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ParticipantList from './ParticipantList';
 import skiData from '../../data/data.json';
 
 export default function SkiRace() {
   const [locationChoice, setLocationChoice] = useState('10km');
-  const [progressBarPercent, setProgressBarPercent] = useState(100);
   const [onlyNorwegians, setOnlyNorwegians] = useState(false);
-
-  useEffect(() => {
-    switch (locationChoice) {
-      case '10km':
-        setProgressBarPercent(100);
-        break;
-      case '8.1km':
-        setProgressBarPercent(81);
-        break;
-      case '6.1km':
-        setProgressBarPercent(61);
-        break;
-      case '5.0km':
-        setProgressBarPercent(50);
-        break;
-      case '3.1km':
-        setProgressBarPercent(31);
-        break;
-      case '1.1km':
-        setProgressBarPercent(11);
-        break;
-      default:
-        break;
-    }
-  }, [locationChoice]);
 
   let dateParts = skiData.racedata.date.split('-');
 

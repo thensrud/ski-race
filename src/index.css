@@ -242,9 +242,6 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 400px) {
-  .progress-container {
-    margin: 0 5px 15px;
-  }
   .distance-button-container {
     margin: 5px 5px 15px;
   }
